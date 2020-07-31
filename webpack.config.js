@@ -51,9 +51,12 @@ const config = {
       links: [
         'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap',
       ],
-      meta: {
-        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-      },
+      meta: [
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1, shrink-to-fit=no',
+        },
+      ],
     }),
   ],
 };

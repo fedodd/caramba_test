@@ -1,5 +1,10 @@
 module.exports = {
   plugins: [
-    require('autoprefixer')
-  ]
+    require('postcss-mixins'),
+    require('postcss-nested'),
+    require('postcss-conditionals'),
+    require('postcss-simple-vars'),
+    require('postcss-preset-env'),
+    require('autoprefixer'),
+  ],
 };

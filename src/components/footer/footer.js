@@ -1,4 +1,5 @@
 import React from 'react';
+import classes from './footer.pcss';
 
 const footer = () => {
   return (

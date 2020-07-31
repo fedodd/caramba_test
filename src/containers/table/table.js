@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TableRow from './tableRow.js';
+import classes from './table.pcss';
 
 const table = (props) => {
   // translate car status.
@@ -25,7 +26,7 @@ const table = (props) => {
   });
 
   return (
-    <table>
+    <table className={classes.table}>
       <caption>Автомобили в наличии</caption>
       <thead>
         <tr>
@@ -38,7 +39,7 @@ const table = (props) => {
       </thead>
       <tbody>
         {cars.map((car) => (
-          <TableRow car={car} />
+          <TableRow car={car} key={car.id} />
         ))}
       </tbody>
     </table>
