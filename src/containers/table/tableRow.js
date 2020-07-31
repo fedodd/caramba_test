@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const tableRow = (props) => {
   return (
     <tr>
       <td>
-        Имя<p>Доп опция</p>
+        {props.car.title}
+        <p>{props.car.description}</p>
       </td>
-      <td>2012</td>
-      <td>черный</td>
-      <td>ожидается</td>
+      <td>{props.car.year}</td>
+      <td>{props.car.color}</td>
+      <td>{props.car.status}</td>
       <td>
-        1689000 руб. <button>Удалить</button>
+        {props.car.price} руб. <button>Удалить</button>
       </td>
     </tr>
   );

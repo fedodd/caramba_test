@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import TableRow from './tableRow.js';
 
-const table = () => {
+const table = (props) => {
   return (
     <table>
       <caption>Автомобили в наличии</caption>
@@ -15,11 +15,9 @@ const table = () => {
         </tr>
       </thead>
       <tbody>
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
-        <TableRow />
+        {props.data.map((car) => (
+          <TableRow car={car} />
+        ))}
       </tbody>
     </table>
   );
