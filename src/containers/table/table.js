@@ -2,6 +2,28 @@ import React, { useEffect, useState } from 'react';
 import TableRow from './tableRow.js';
 
 const table = (props) => {
+  // translate car status.
+  const cars = props.data;
+  cars.map((car) => {
+    let status = '';
+    switch (car.status) {
+      case 'pednding':
+        status = 'Ожидается';
+        break;
+      case 'out_of_stock':
+        status = 'Нет в наличии';
+        break;
+      case 'in_stock':
+        status = 'В наличии';
+        break;
+
+      default:
+        break;
+    }
+    car.status = status;
+    return car;
+  });
+
   return (
     <table>
       <caption>Автомобили в наличии</caption>
@@ -15,7 +37,7 @@ const table = (props) => {
         </tr>
       </thead>
       <tbody>
-        {props.data.map((car) => (
+        {cars.map((car) => (
           <TableRow car={car} />
         ))}
       </tbody>
