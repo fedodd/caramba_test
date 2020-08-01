@@ -56,8 +56,10 @@ const form = () => {
           ></Field>
           <span className={classes.inputTitle}>Описание</span>
         </label>
-        <fieldset className={classes.radioFieldset}>
-          <legend className={classes.radioTitle}>Цвет</legend>
+        <fieldset className={classes.fieldset}>
+          <legend className={classes.inputTitle + " " + classes.is__alt}>
+            Цвет
+          </legend>
           <div className={classes.radioGroup}>
             <label
               className={classes.radioLabel}
@@ -120,19 +122,25 @@ const form = () => {
           </div>
         </fieldset>
 
-        <label className={classes.label}>
-          Статус
-          <Field
-            className={classes.input + " " + classes.select}
-            as="select"
-            placeholder="Статус"
-            name="status"
-          >
-            <option>В наличии</option>
-            <option>Ожидается</option>
-            <option>Нет в наличии</option>
-          </Field>
-        </label>
+        <fieldset className={classes.fieldset}>
+          <label className={classes.label}>
+            {/* <legend className={classes.inputTitle + " " + classes.is__alt}>
+              Статус
+            </legend> */}
+            <Field
+              className={classes.input + " " + classes.select}
+              as="select"
+              name="status"
+            >
+              <option value="" disabled selected hidden>
+                Статус
+              </option>
+              <option value="in_stock">В наличии</option>
+              <option value="pednding">Ожидается</option>
+              <option value="out_of_stock">Нет в наличии</option>
+            </Field>
+          </label>
+        </fieldset>
         <button type="submit">Отправить</button>
       </Form>
     </Formik>
