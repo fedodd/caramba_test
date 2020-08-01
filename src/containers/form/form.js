@@ -56,46 +56,69 @@ const form = () => {
           ></Field>
           <span className={classes.inputTitle}>Описание</span>
         </label>
-        <label
-          htmlFor="color"
-          className={classes.label + " " + classes.radioLabel}
-        >
-          <span className={classes.inputTitle + " " + classes.is__alt}>
-            Цвет
-          </span>
-          <div>
-            <Field
-              type="radio"
-              name="color"
-              value="white"
-              className={classes.radio}
-            ></Field>
-            <Field
-              type="radio"
-              name="color"
-              value="black"
-              className={classes.radio}
-            ></Field>
-            <Field
-              type="radio"
-              name="color"
-              value="grey"
-              className={classes.radio}
-            ></Field>
-            <Field
-              type="radio"
-              name="color"
-              value="red"
-              className={classes.radio}
-            ></Field>
-            <Field
-              type="radio"
-              name="color"
-              value="green"
-              className={classes.radio}
-            ></Field>
+        <fieldset className={classes.radioFieldset}>
+          <legend className={classes.radioTitle}>Цвет</legend>
+          <div className={classes.radioGroup}>
+            <label
+              className={classes.radioLabel}
+              style={{
+                backgroundColor: "var(--carColor-white)",
+                border: "1px solid #DDDDDD",
+              }}
+            >
+              <Field
+                type="radio"
+                name="color"
+                value="white"
+                className={classes.radio}
+              ></Field>
+            </label>
+            <label
+              className={classes.radioLabel}
+              style={{ backgroundColor: "var(--carColor-black)" }}
+            >
+              <Field
+                type="radio"
+                name="color"
+                value="black"
+                className={classes.radio}
+              ></Field>
+            </label>
+            <label
+              className={classes.radioLabel}
+              style={{ backgroundColor: "var(--carColor-grey)" }}
+            >
+              <Field
+                type="radio"
+                name="color"
+                value="grey"
+                className={classes.radio}
+              ></Field>
+            </label>
+            <label
+              className={classes.radioLabel}
+              style={{ backgroundColor: "var(--carColor-red)" }}
+            >
+              <Field
+                type="radio"
+                name="color"
+                value="red"
+                className={classes.radio}
+              ></Field>
+            </label>
+            <label
+              className={classes.radioLabel}
+              style={{ backgroundColor: "var(--carColor-green)" }}
+            >
+              <Field
+                type="radio"
+                name="color"
+                value="green"
+                className={classes.radio}
+              ></Field>
+            </label>
           </div>
-        </label>
+        </fieldset>
 
         <label className={classes.label}>
           Статус
