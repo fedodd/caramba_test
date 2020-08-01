@@ -1,42 +1,65 @@
-import React from 'react';
-import classes from './form.pcss';
+import React from "react";
+import classes from "./form.pcss";
+import { Formik, Field, Form } from "formik";
 
 const form = () => {
   return (
-    <form>
-      <label>
-        <span>Название</span>
-        <input type="text" placeholder="Название"></input>
-      </label>
-      <label>
-        <span>Цена</span>
-        <input type="text" placeholder="Цена"></input>
-      </label>
-      <label>
-        <span>Год</span>
-        <input type="text" placeholder="Год"></input>
-      </label>
-      <label>
-        <span>Описание</span>
-        <input type="text" placeholder="Описание"></input>
-      </label>
-      <fieldset>
-        <label htmlFor="color">Цвет</label>
-        <input type="radio" name="color" value="white"></input>
-        <input type="radio" name="color" value="black"></input>
-        <input type="radio" name="color" value="grey"></input>
-        <input type="radio" name="color" value="red"></input>
-        <input type="radio" name="color" value="green"></input>
-      </fieldset>
-      <label>
-        Статус
-        <select>
-          <option>В наличии</option>
-          <option>Ожидается</option>
-          <option>Нет в наличии</option>
-        </select>
-      </label>
-    </form>
+    <div>
+      <Formik
+        initialValues={{
+          title: "",
+          price: "",
+          year: "",
+          description: "",
+          color: "",
+          status: "",
+        }}
+        onSubmit={async (values) => {
+          await new Promise((r) => setTimeout(r, 500));
+          alert(JSON.stringify(values, null, 2));
+        }}
+      >
+        <Form>
+          <label>
+            <span>Название</span>
+            <Field type="text" placeholder="Название" name="title"></Field>
+          </label>
+          <label>
+            <span>Цена</span>
+            <Field type="text" placeholder="Цена" name="price"></Field>
+          </label>
+          <label>
+            <span>Год</span>
+            <Field type="text" placeholder="Год" name="year"></Field>
+          </label>
+          <label>
+            <span>Описание</span>
+            <Field
+              type="text"
+              placeholder="Описание"
+              name="description"
+            ></Field>
+          </label>
+          <fieldset>
+            <label htmlFor="color">Цвет</label>
+            <Field type="radio" name="color" value="white"></Field>
+            <Field type="radio" name="color" value="black"></Field>
+            <Field type="radio" name="color" value="grey"></Field>
+            <Field type="radio" name="color" value="red"></Field>
+            <Field type="radio" name="color" value="green"></Field>
+          </fieldset>
+          <label>
+            Статус
+            <Field as="select" placeholder="Статус" name="status">
+              <option>В наличии</option>
+              <option>Ожидается</option>
+              <option>Нет в наличии</option>
+            </Field>
+          </label>
+          <button type="submit">Отправить</button>
+        </Form>
+      </Formik>
+    </div>
   );
 };
 
