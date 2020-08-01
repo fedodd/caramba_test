@@ -6,6 +6,8 @@ import Footer from "../components/footer/footer";
 import Form from "../containers/form/form";
 import Table from "../containers/table/table";
 
+import classes from "./app.pcss";
+
 function App() {
   const [data, setData] = useState([]);
   const dataUrl =
@@ -36,12 +38,8 @@ function App() {
   return (
     <div>
       <Header />
-      <main className="main">
-        <div className="">
-          <h1>
-            <span>!</span>Ay caramba!
-          </h1>
-        </div>
+      <main>
+        <h1 className={classes.title}>¡Ay caramba!</h1>
         <Form />
         {isError && <div>Something went wrong ...</div>}
         {isLoading ? <div>Loading ...</div> : <Table data={data} />}

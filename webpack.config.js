@@ -17,6 +17,17 @@ const config = {
         exclude: /node_modules/,
       },
       {
+        test: /\.png$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              mimetype: "image/png",
+            },
+          },
+        ],
+      },
+      {
         test: /\.(css|pcss)$/,
         use: [
           "style-loader",
