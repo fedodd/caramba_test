@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { hot } from 'react-hot-loader/root';
-import Header from '../components/header/header';
-import Footer from '../components/footer/footer';
-import Form from '../containers/form/form';
-import Table from '../containers/table/table';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { hot } from "react-hot-loader/root";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
+import Form from "../containers/form/form";
+import Table from "../containers/table/table";
 
 function App() {
   const [data, setData] = useState([]);
   const dataUrl =
-    'https://rawgit.com/Varinetz/e6cbadec972e76a340c41a65fcc2a6b3/raw/90191826a3bac2ff0761040ed1d95c59f14eaf26/frontend_test_table.json';
+    "https://rawgit.com/Varinetz/e6cbadec972e76a340c41a65fcc2a6b3/raw/90191826a3bac2ff0761040ed1d95c59f14eaf26/frontend_test_table.json";
 
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   return (
-    <div id="app">
+    <div>
       <Header />
       <main className="main">
         <div className="">
