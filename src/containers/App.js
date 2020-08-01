@@ -38,7 +38,7 @@ function App() {
   return (
     <div>
       <Header />
-      <main>
+      <main className={classes.main}>
         <h1 className={classes.title}>¡Ay caramba!</h1>
         <Form />
         {isError && <div>Something went wrong ...</div>}
