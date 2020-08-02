@@ -42,7 +42,7 @@ function App() {
         <h1 className={classes.title}>¡Ay caramba!</h1>
         <Form />
         {isError && <div>Something went wrong ...</div>}
-        {isLoading ? <div>Loading ...</div> : <Table data={data} />}
+        {/* {isLoading ? <div>Loading ...</div> : <Table data={data} />} */}
       </main>
       <Footer />
     </div>
