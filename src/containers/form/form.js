@@ -139,6 +139,7 @@ const form = () => {
                 <option value="pednding">Ожидается</option>
                 <option value="out_of_stock">Нет в наличии</option>
               </Field>
+              <div className={classes.selectIcon}></div>
             </div>
           </label>
         </fieldset>
