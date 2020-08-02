@@ -9,7 +9,6 @@ const select = ({
   ...props
 }) => {
   const options = [
-    { value: "", name: "Статус", disabled: true },
     { value: "in_stock", name: "В наличии" },
     { value: "pednding", name: "Ожидается" },
     { value: "out_of_stock", name: "Нет в наличии" },
@@ -30,32 +29,3 @@ const select = ({
 };
 
 export default select;
-
-{
-  /* <div className={classes.selectWrapper}>
-              <Field
-                className={classes.input + " " + classes.select}
-                as="select"
-                name="status"
-              >
-                <option
-                  className={classes.selectOption}
-                  value=""
-                  disabled
-                  hidden
-                >
-                  Статус
-                </option>
-                <option className={classes.selectOption} value="in_stock">
-                  В наличии
-                </option>
-                <option className={classes.selectOption} value="pednding">
-                  Ожидается
-                </option>
-                <option className={classes.selectOption} value="out_of_stock">
-                  Нет в наличии
-                </option>
-              </Field>
-              <div className={classes.selectIcon}></div>
-            </div> */
-}

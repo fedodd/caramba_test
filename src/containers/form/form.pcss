@@ -50,6 +50,25 @@
     border-bottom-color: #c4092f;
     cursor: pointer;
   }
+
+  &.is__select {
+    position: relative;
+    &::after {
+      content: "";
+      box-sizing: border-box;
+      border: 6px solid transparent;
+      border-top-color: var(--tcolor-light);
+
+      position: absolute;
+      right: 17px;
+      top: 18px;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      border-top-color: var(--tcolor-black);
+    }
+  }
 }
 
 .inputTitle {
