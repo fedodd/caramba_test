@@ -35,7 +35,7 @@
   border-bottom-width: 2px;
   outline: none;
   transition: 0.3s;
-  padding-left: 10px;
+  padding-left: var(--padding-inputText);
 
   &:focus,
   &:hover:focus {
@@ -55,7 +55,7 @@
 .inputTitle {
   order: -1;
   display: inline-block;
-  margin-left: 10px;
+  margin-left: var(--padding-inputText);
   opacity: 0;
   margin-bottom: 3px;
   .input:focus + & {
@@ -137,15 +137,40 @@
     /* margin-top: 0px; */
   }
 }
-
+/*
 .select {
   background-color: white;
-  color: inherit;
+  color: --tcolor-light;
 
   & option {
     color: inherit;
-    &:hover {
+    border: none;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
       color: var(--tcolor-black);
+      background-color: transparent;
     }
   }
+} */
+
+.select {
+  cursor: pointer;
+  flex: 1;
+  padding: 0 0.5em;
+  border: 0;
+  outline: 0;
+  color: var(--tcolor-light);
+  background: white;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: var(--border-input);
+  cursor: pointer;
+  border-bottom-width: 2px;
+  padding-left: var(--padding-inputText);
 }

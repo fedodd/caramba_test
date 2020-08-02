@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Field, Form } from "formik";
 
 import classes from "./form.pcss";
 
 const form = () => {
+  const [selectValue, setSelectValue] = useState("");
+
   return (
     <Formik
       initialValues={{
@@ -124,21 +126,20 @@ const form = () => {
 
         <fieldset className={classes.fieldset}>
           <label className={classes.label}>
-            {/* <legend className={classes.inputTitle + " " + classes.is__alt}>
-              Статус
-            </legend> */}
-            <Field
-              className={classes.input + " " + classes.select}
-              as="select"
-              name="status"
-            >
-              <option value="" disabled selected hidden>
-                Статус
-              </option>
-              <option value="in_stock">В наличии</option>
-              <option value="pednding">Ожидается</option>
-              <option value="out_of_stock">Нет в наличии</option>
-            </Field>
+            <div className={classes.selectWrapper}>
+              <Field
+                className={classes.input + " " + classes.select}
+                as="select"
+                name="status"
+              >
+                <option value="" disabled hidden>
+                  Статус
+                </option>
+                <option value="in_stock">В наличии</option>
+                <option value="pednding">Ожидается</option>
+                <option value="out_of_stock">Нет в наличии</option>
+              </Field>
+            </div>
           </label>
         </fieldset>
         <button type="submit">Отправить</button>
