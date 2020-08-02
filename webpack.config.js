@@ -20,9 +20,13 @@ const config = {
         test: /\.png$/,
         use: [
           {
-            loader: "url-loader",
+            loader: "file-loader",
             options: {
-              mimetype: "image/png",
+              name: "[path][name].[ext]",
+              // context: path.resolve(__dirname, "src/images"),
+              // outputPath: "dist/",
+              // publicPath: "./",
+              // useRelativePaths: true,
             },
           },
         ],
