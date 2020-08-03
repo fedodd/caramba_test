@@ -126,10 +126,10 @@ const form = () => {
             </div>
           </fieldset>
 
-          <fieldset className={classes.fieldset}>
+          <fieldset className={classes.fieldset + " " + classes.is__select}>
             <label className={classes.label}>
               <Field
-                className={classes.input + " " + classes.is__select}
+                className={classes.input}
                 component={Select}
                 type="select"
                 changeHandler={(value) => setFieldValue("status", value, false)}

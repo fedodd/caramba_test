@@ -22,6 +22,10 @@
     margin-right: 0; */
   }
 
+  .is__select & {
+    height: 40px;
+  }
+
   @media only screen and (min-width: 720px) {
   }
 }
@@ -51,8 +55,9 @@
     cursor: pointer;
   }
 
-  &.is__select {
+  .is__select & {
     position: relative;
+    padding-left: 0;
     &::after {
       content: "";
       box-sizing: border-box;

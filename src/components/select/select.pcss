@@ -15,16 +15,15 @@
   position: relative;
   margin: 0;
   padding: 0;
+  padding-left: var(--padding-inputText);
 }
 
 .select {
   color: var(--tcolor-light);
   position: relative;
-  left: calc(
-    var(--padding-inputText) * -1
-  ); /*here + 1 end in width +2 it's for borders*/
-  width: calc(100% + 1px + var(--padding-inputText));
-  margin-top: 2px;
+
+  width: calc(100% +2px); /*2px is border of parent form classes*/
+  margin-top: 2px; /*2px is border of parent form classes*/
   box-sizing: border-box;
   border: var(--border-input);
   border-top: none;
@@ -42,7 +41,7 @@
 
 .option {
   background-color: white;
-  height: 30px;
+  height: 26px;
   width: 100%;
   border: none;
   padding: 0;
