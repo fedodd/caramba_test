@@ -68,7 +68,7 @@ const form = () => {
               <label
                 className={classes.radioLabel}
                 style={{
-                  backgroundColor: "var(--carColor-white)",
+                  backgroundColor: "var(--color-car_white)",
                   border: "1px solid #DDDDDD",
                 }}
               >
@@ -81,7 +81,7 @@ const form = () => {
               </label>
               <label
                 className={classes.radioLabel}
-                style={{ backgroundColor: "var(--carColor-black)" }}
+                style={{ backgroundColor: "var(--color-car_black)" }}
               >
                 <Field
                   type="radio"
@@ -92,7 +92,7 @@ const form = () => {
               </label>
               <label
                 className={classes.radioLabel}
-                style={{ backgroundColor: "var(--carColor-grey)" }}
+                style={{ backgroundColor: "var(--color-car_grey)" }}
               >
                 <Field
                   type="radio"
@@ -103,7 +103,7 @@ const form = () => {
               </label>
               <label
                 className={classes.radioLabel}
-                style={{ backgroundColor: "var(--carColor-red)" }}
+                style={{ backgroundColor: "var(--color-car_red)" }}
               >
                 <Field
                   type="radio"
@@ -114,7 +114,7 @@ const form = () => {
               </label>
               <label
                 className={classes.radioLabel}
-                style={{ backgroundColor: "var(--carColor-green)" }}
+                style={{ backgroundColor: "var(--color-car_green)" }}
               >
                 <Field
                   type="radio"
