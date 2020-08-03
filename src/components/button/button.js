@@ -1,8 +1,12 @@
 import React from "react";
 import classes from "./button.pcss";
 
-const button = () => {
-  return <div></div>;
+const button = (props) => {
+  return (
+    <button classNmae={classes.button} type={props.type}>
+      {props.text}
+    </button>
+  );
 };
 
 export default button;

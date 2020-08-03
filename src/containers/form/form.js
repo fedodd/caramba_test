@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Formik, Field, Form } from "formik";
 import Select from "../../components/select/select";
+import Button from "../../components/button/button";
 
 import classes from "./form.pcss";
 
@@ -137,7 +138,8 @@ const form = () => {
               ></Field>
             </label>
           </fieldset>
-          <button type="submit">Отправить</button>
+          {/* <button type="submit">Отправить</button> */}
+          <Button type="submit" text="Отправить" />
         </Form>
       )}
     />
