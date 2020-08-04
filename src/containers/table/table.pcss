@@ -1,2 +1,32 @@
 .table {
+  font-size: var(--fontSize-table);
+  font-weight: 300;
+  & thead,
+  & caption {
+    display: none;
+  }
+  @media only screen and (min-width: 720px) {
+    & thead,
+    & caption {
+      display: initial;
+    }
+  }
+}
+
+.descr {
+  margin: 0;
+  padding: 0;
+  color: var(--color-text_descr);
+  font-size: var(--fontSize-table_descr);
+}
+
+.color {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 24px;
+  position: relative;
+  border: 1px solid transparent;
 }
