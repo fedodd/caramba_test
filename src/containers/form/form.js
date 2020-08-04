@@ -24,35 +24,37 @@ const form = () => {
       }}
       render={({ setFieldValue, values, errors }) => (
         <Form className={classes.form}>
-          <label className={classes.label}>
-            <Field
-              className={classes.input}
-              type="text"
-              placeholder="Название"
-              name="title"
-            ></Field>
-            <span className={classes.inputTitle}>Название</span>
-          </label>
-          <label className={classes.label + " " + classes.short}>
-            <Field
-              className={classes.input}
-              type="text"
-              placeholder="Цена"
-              name="price"
-            ></Field>
-            <span className={classes.inputTitle}>Цена</span>
-          </label>
-          <label className={classes.label + " " + classes.short}>
-            <Field
-              className={classes.input}
-              type="text"
-              placeholder="Год"
-              name="year"
-            ></Field>
+          <fieldset className={classes.fieldset}>
+            <label className={classes.label}>
+              <Field
+                className={classes.input}
+                type="text"
+                placeholder="Название"
+                name="title"
+              ></Field>
+              <span className={classes.inputTitle}>Название</span>
+            </label>
+            <label className={classes.label + " " + classes.is__short}>
+              <Field
+                className={classes.input}
+                type="text"
+                placeholder="Цена"
+                name="price"
+              ></Field>
+              <span className={classes.inputTitle}>Цена</span>
+            </label>
+            <label className={classes.label + " " + classes.is__short}>
+              <Field
+                className={classes.input}
+                type="text"
+                placeholder="Год"
+                name="year"
+              ></Field>
 
-            <span className={classes.inputTitle}>Год</span>
-          </label>
-          <label className={classes.label + " " + classes.wide}>
+              <span className={classes.inputTitle}>Год</span>
+            </label>
+          </fieldset>
+          <label className={classes.label + " " + classes.is__wide}>
             <Field
               className={classes.input}
               type="text"
@@ -128,7 +130,7 @@ const form = () => {
           </fieldset>
 
           <fieldset className={classes.fieldset + " " + classes.is__select}>
-            <label className={classes.label}>
+            <label className={classes.label + " " + classes.is__short}>
               <Field
                 className={classes.input}
                 component={Select}
@@ -137,9 +139,9 @@ const form = () => {
                 name="status"
               ></Field>
             </label>
+            <Button type="submit" text="Отправить" />
           </fieldset>
           {/* <button type="submit">Отправить</button> */}
-          <Button type="submit" text="Отправить" />
         </Form>
       )}
     />
