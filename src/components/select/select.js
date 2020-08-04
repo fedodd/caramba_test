@@ -10,7 +10,10 @@ const select = ({
 }) => {
   const options = [
     { value: "in_stock", name: "В наличии" },
-    { value: "pednding", name: "Ожидается" },
+    {
+      value: "pending",
+      name: "Ожидается",
+    },
     { value: "out_of_stock", name: "Нет в наличии" },
   ];
 

@@ -22,7 +22,11 @@ function App() {
       setIsLoading(true);
       try {
         const result = await axios(dataUrl);
-        const cars = result.data;
+        // fix here pednding to pending maybe
+        const cars = result.data.map((car) => {
+          car.status === "pednding" ? (car.status = "pending") : null;
+          return car;
+        });
 
         setData(cars);
         setIsLoading(false);
