@@ -6,19 +6,28 @@
   justify-content: center;
   margin: 0;
   padding: 0;
+  transition: 0.3s;
 
   outline: none;
 
-  .is__delete {
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.is__delete {
     width: 70px;
     height: 30px;
     border: none;
     text-transform: capitalize;
+    font-size: inherit;
+    font-weight: inherit;
+    border-radius: 15px;
 
     color: inherit;
     background-color: transparent;
     &:hover {
       color: white;
+      background-color: var(--color-bg_dark);
     }
   }
 
@@ -34,7 +43,6 @@
     background-color: var(--color-button);
 
     &:hover {
-      cursor: pointer;
       border-color: var(--color-bg_dark);
       /* no style for button hover */
       background-color: var(--color-bg_dark);
