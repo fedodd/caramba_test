@@ -29,7 +29,7 @@ const input = (props) => {
   return (
     <label className={classes.radioLabel} style={specialStyle}>
       <Field
-        type={props.type}
+        type="radio"
         value={props.value}
         name={props.name}
         className={classes.radio}

@@ -6,7 +6,10 @@
   padding: 0;
   border: 0;
   margin: 0;
-  margin-top: 17px;
+
+  &.with__margin {
+    margin-top: var(--margin-form_y);
+  }
 }
 
 .legend {
@@ -16,4 +19,16 @@
   font-size: var(--fontSize-input);
   line-height: var(--lineHeight-input);
   color: var(--color-text_light);
+}
+
+.radioGroup {
+  margin-bottom: var(--margin-form_y);
+
+  @media only screen and (min-width: 720px) {
+    & {
+      width: var(--input-size_full);
+      display: inline-block;
+      margin-right: var(--margin-form_x);
+    }
+  }
 }

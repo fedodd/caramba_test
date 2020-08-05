@@ -42,6 +42,11 @@
     color: white;
     background-color: var(--color-button);
 
+    @media only screen and (min-width: 720px) {
+      width: var(--input-size_full);
+      max-width: unset;
+    }
+
     &:hover {
       border-color: var(--color-bg_dark);
       /* no style for button hover */

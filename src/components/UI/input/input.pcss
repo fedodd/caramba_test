@@ -10,24 +10,34 @@
   line-height: var(--lineHeight-input);
   color: var(--color-text_light);
 
-  @media only screen and (min-width: 720px) {
-  }
-
   &.is__short {
-    margin-right: 20px;
-    width: calc((100% - 20px) / 2); /*20px - margin*/
+    margin-right: var(--margin-form_x);
+    width: calc(
+      (100% - var(--margin-form_x)) / 2
+    ); /*check is it work with css vars*/
     & ~ & {
       margin-right: 0;
     }
   }
 
   &.is__wide {
-    /* width: 100%;
-    margin-right: 0; */
+    width: 100%;
   }
 
   &.is__select {
     height: 40px;
+  }
+
+  @media only screen and (min-width: 720px) {
+    &,
+    &.is__short {
+      width: var(--input-size_full);
+      margin-right: var(--margin-form_x);
+
+      .fildset::last-child {
+        margin-right: 0;
+      }
+    }
   }
 }
 

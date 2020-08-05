@@ -55,18 +55,18 @@ const form = () => {
             name="description"
             inputTitle="Описание"
           />
-          <fieldset className={classes.fieldset}>
-            <legend className={classes.legend}>Цвет</legend>
+          <fieldset className={classes.fieldset + " " + classes.with__margin}>
             <div className={classes.radioGroup}>
-              <Radio type="radio" name="color" value="white" />
-              <Radio type="radio" name="color" value="black" />
-              <Radio type="radio" name="color" value="grey" />
-              <Radio type="radio" name="color" value="red" />
-              <Radio type="radio" name="color" value="green" />
+              <legend className={classes.legend}>Цвет</legend>
+              <div>
+                <Radio name="color" value="white" />
+                <Radio name="color" value="black" />
+                <Radio name="color" value="grey" />
+                <Radio name="color" value="red" />
+                <Radio name="color" value="green" />
+              </div>
             </div>
-          </fieldset>
 
-          <fieldset className={classes.fieldset + " " + classes.is__select}>
             <Input
               labelClass="is__short"
               type="select"
