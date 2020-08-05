@@ -1,0 +1,83 @@
+.label {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 70px;
+  outline: none;
+  font-size: var(--fontSize-input);
+  line-height: var(--lineHeight-input);
+  color: var(--color-text_light);
+
+  @media only screen and (min-width: 720px) {
+  }
+
+  &.is__short {
+    margin-right: 20px;
+    width: calc((100% - 20px) / 2); /*20px - margin*/
+    & ~ & {
+      margin-right: 0;
+    }
+  }
+
+  &.is__wide {
+    /* width: 100%;
+    margin-right: 0; */
+  }
+
+  &.is__select {
+    height: 40px;
+  }
+}
+
+.input {
+  margin-right: 0;
+  padding-left: var(--padding-inputText);
+  width: 100%;
+  height: 40px;
+  border: var(--border-input);
+  border-bottom-width: 2px;
+  outline: none;
+  transition: 0.3s;
+
+  &:focus,
+  &:hover:focus {
+    border-bottom-color: var(--color-text_black);
+    color: var(--color-text_black);
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-bottom-color: #c4092f;
+  }
+  .is__select & {
+    position: relative;
+    padding-left: 0;
+  }
+}
+
+.inputTitle {
+  display: inline-block;
+  margin-bottom: 3px;
+  margin-left: var(--padding-inputText);
+  opacity: 0;
+  order: -1;
+  .input:focus + & {
+    opacity: 1;
+  }
+
+  &.is__alt {
+    margin-bottom: 5px;
+    margin-left: 0;
+    width: 100%;
+    font-size: var(--fontSize-input);
+    line-height: var(--lineHeight-input);
+    opacity: 1;
+    color: var(--color-text_light);
+    order: unset;
+  }
+}

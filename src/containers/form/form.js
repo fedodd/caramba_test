@@ -1,22 +1,24 @@
-import React, { useState } from 'react';
-import { Formik, Field, Form } from 'formik';
-import Select from '../../components/select/select';
-import Button from '../../components/button/button';
+import React, { useState } from "react";
+import { Formik, Field, Form } from "formik";
+import Select from "../../components/UI/select/select";
+import Button from "../../components/UI/button/button";
+import Input from "../../components/UI/input/input";
+import Radio from "../../components/UI/radio/radio";
 
-import classes from './form.pcss';
+import classes from "./form.pcss";
 
 const form = () => {
-  const [selectValue, setSelectValue] = useState('');
+  const [selectValue, setSelectValue] = useState("");
 
   return (
     <Formik
       initialValues={{
-        title: '',
-        price: '',
-        year: '',
-        description: '',
-        color: '',
-        status: '',
+        title: "",
+        price: "",
+        year: "",
+        description: "",
+        color: "",
+        status: "",
       }}
       onSubmit={async (values) => {
         await new Promise((r) => setTimeout(r, 500));
@@ -25,105 +27,52 @@ const form = () => {
       render={({ setFieldValue, values, errors }) => (
         <Form className={classes.form}>
           <fieldset className={classes.fieldset}>
-            <label className={classes.label}>
-              <Field
-                className={classes.input}
-                type="text"
-                placeholder="Название"
-                name="title"></Field>
-              <span className={classes.inputTitle}>Название</span>
-            </label>
-            <label className={classes.label + ' ' + classes.is__short}>
-              <Field
-                className={classes.input}
-                type="text"
-                placeholder="Цена"
-                name="price"></Field>
-              <span className={classes.inputTitle}>Цена</span>
-            </label>
-            <label className={classes.label + ' ' + classes.is__short}>
-              <Field
-                className={classes.input}
-                type="text"
-                placeholder="Год"
-                name="year"></Field>
-
-              <span className={classes.inputTitle}>Год</span>
-            </label>
-          </fieldset>
-          <label className={classes.label + ' ' + classes.is__wide}>
-            <Field
-              className={classes.input}
+            <Input
               type="text"
-              placeholder="Описание"
-              name="description"></Field>
-            <span className={classes.inputTitle}>Описание</span>
-          </label>
+              placeholder="Название"
+              name="title"
+              inputTitle="Название"
+            />
+            <Input
+              labelClass="is__short"
+              type="text"
+              placeholder="Цена"
+              name="price"
+              inputTitle="Цена"
+            />
+            <Input
+              labelClass="is__short"
+              type="text"
+              placeholder="Год"
+              name="year"
+              inputTitle="Год"
+            />
+          </fieldset>
+          <Input
+            labelClass="is__wide"
+            type="text"
+            placeholder="Описание"
+            name="description"
+            inputTitle="Описание"
+          />
           <fieldset className={classes.fieldset}>
-            <legend className={classes.inputTitle + ' ' + classes.is__alt}>
-              Цвет
-            </legend>
+            <legend className={classes.legend}>Цвет</legend>
             <div className={classes.radioGroup}>
-              <label
-                className={classes.radioLabel}
-                style={{
-                  backgroundColor: 'var(--color-car_white)',
-                  border: '1px solid #DDDDDD',
-                }}>
-                <Field
-                  type="radio"
-                  name="color"
-                  value="white"
-                  className={classes.radio}></Field>
-              </label>
-              <label
-                className={classes.radioLabel}
-                style={{ backgroundColor: 'var(--color-car_black)' }}>
-                <Field
-                  type="radio"
-                  name="color"
-                  value="black"
-                  className={classes.radio}></Field>
-              </label>
-              <label
-                className={classes.radioLabel}
-                style={{ backgroundColor: 'var(--color-car_grey)' }}>
-                <Field
-                  type="radio"
-                  name="color"
-                  value="grey"
-                  className={classes.radio}></Field>
-              </label>
-              <label
-                className={classes.radioLabel}
-                style={{ backgroundColor: 'var(--color-car_red)' }}>
-                <Field
-                  type="radio"
-                  name="color"
-                  value="red"
-                  className={classes.radio}></Field>
-              </label>
-              <label
-                className={classes.radioLabel}
-                style={{ backgroundColor: 'var(--color-car_green)' }}>
-                <Field
-                  type="radio"
-                  name="color"
-                  value="green"
-                  className={classes.radio}></Field>
-              </label>
+              <Radio type="radio" name="color" value="white" />
+              <Radio type="radio" name="color" value="black" />
+              <Radio type="radio" name="color" value="grey" />
+              <Radio type="radio" name="color" value="red" />
+              <Radio type="radio" name="color" value="green" />
             </div>
           </fieldset>
 
-          <fieldset className={classes.fieldset + ' ' + classes.is__select}>
-            <label className={classes.label + ' ' + classes.is__short}>
-              <Field
-                className={classes.input}
-                component={Select}
-                type="select"
-                changeHandler={(value) => setFieldValue('status', value, false)}
-                name="status"></Field>
-            </label>
+          <fieldset className={classes.fieldset + " " + classes.is__select}>
+            <Input
+              labelClass="is__short"
+              type="select"
+              changeHandler={(value) => setFieldValue("status", value, false)}
+              name="status"
+            />
             <Button
               type="submit"
               text="Отправить"
@@ -134,8 +83,6 @@ const form = () => {
         </Form>
       )}
     />
-
-    // </Formik>
   );
 };
 
