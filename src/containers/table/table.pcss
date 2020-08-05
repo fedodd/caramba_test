@@ -1,6 +1,9 @@
 .table {
   font-size: var(--fontSize-table);
+  line-height: var(--lineHeight-table);
   font-weight: 300;
+  background-color: var(--color-bg_table);
+  border-spacing: 0;
   & thead,
   & caption {
     display: none;
@@ -25,9 +28,9 @@
 /* maybe move it to row.pcss */
 .row {
   display: flex;
-  padding: 20px 10px;
+  padding: 20px;
   flex-wrap: wrap;
-
+  border-bottom: var(--border-table);
   @media only screen and (min-width: 720px) {
     & {
       display: table-row;
@@ -36,6 +39,7 @@
 }
 
 .td {
+  padding: 0;
   order: 1;
   &.is__alt {
     order: 3;
@@ -49,11 +53,14 @@
     font-size: var(--fontSize-table_descr);
     color: var(--color-text_descr);
     order: 2;
+    margin-bottom: var(--margin-table_bottom);
   }
 
   &.is__title {
     width: calc((100% - 20px) / 2);
-    padding-right: 20px;
+    margin-right: var(--margin-table_right);
+    box-sizing: content-box;
+    margin-bottom: calc(var(--margin-table_bottom) - 2px);
   }
 
   &.is__price {
@@ -62,6 +69,14 @@
 
   &.is__color {
     padding: 0 10px;
+  }
+
+  &.is__year {
+    margin-right: var(--marin-table_right);
+  }
+
+  &.is__button {
+    margin-left: auto;
   }
 }
 

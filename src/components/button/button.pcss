@@ -6,23 +6,39 @@
   justify-content: center;
   margin: 0;
   padding: 0;
-  min-width: 140px;
-  max-width: 160px;
-  height: 40px;
-  border: 2px solid var(--color-button);
-  border-radius: 3px;
+
   outline: none;
-  font-size: var(--fontSize-button);
-  font-weight: bold;
 
-  color: white;
-  background-color: var(--color-button);
+  .is__delete {
+    width: 70px;
+    height: 30px;
+    border: none;
+    text-transform: capitalize;
 
-  &:hover {
-    cursor: pointer;
-    /* no style for button hover */
-    background-color: var(--color-bg_dark);
-    border-color: var(--color-bg_dark);
+    color: inherit;
+    background-color: transparent;
+    &:hover {
+      color: white;
+    }
+  }
+
+  &.is__submit {
+    min-width: 140px;
+    max-width: 160px;
+    height: 40px;
+    border: 2px solid var(--color-button);
+    border-radius: 3px;
+    font-size: var(--fontSize-button);
+    font-weight: bold;
+    color: white;
+    background-color: var(--color-button);
+
+    &:hover {
+      cursor: pointer;
+      border-color: var(--color-bg_dark);
+      /* no style for button hover */
+      background-color: var(--color-bg_dark);
+    }
   }
 }
 

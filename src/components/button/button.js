@@ -1,11 +1,13 @@
-import React from "react";
-import classes from "./button.pcss";
+import React from 'react';
+import classes from './button.pcss';
 
 const button = (props) => {
   return (
-    <button className={classes.button} type={props.type}>
+    <button
+      type={props.type}
+      className={classes.button + ' ' + classes[props.styleClass]}>
       {props.text}
-      <span className={classes.icon}> </span>
+      {props.withIcon && <span className={classes.icon}> </span>}
     </button>
   );
 };
