@@ -15,6 +15,7 @@ const tableRow = (props) => {
   // translate car status.
   let status = "";
 
+  // translate status
   switch (props.car.status) {
     case "pending":
       status = "Ожидается";
@@ -30,17 +31,33 @@ const tableRow = (props) => {
       break;
   }
 
+  // thousand separator in price
+
+  const price = isNaN(props.car.price)
+    ? props.car.price
+    : props.car.price.toLocaleString("ru-RU");
+  // .toString()
+  // .split("")
+  // .reverse()
+  // .match(/.{1,2}/g)
+  // .reverse()
+  // .join(" ");
+
   return (
     <tr className={classes.row}>
-      <td>{props.car.title}</td>
-      <td className={classes.descr}>{props.car.description}</td>
-      <td className={classes.is__alt}>{props.car.year}</td>
-      <td>
+      <td className={classes.td + " " + classes.is__title}>
+        {props.car.title}
+      </td>
+      <td className={classes.td + " " + classes.is__descr}>
+        {props.car.description}
+      </td>
+      <td className={classes.td + " " + classes.is__alt}>{props.car.year}</td>
+      <td className={classes.td + " " + classes.is__color}>
         <div className={classes.color} style={colorStyle}></div>
       </td>
-      <td className={classes.is__alt}>{status}</td>
-      <td>{props.car.price} руб.</td>
-      <td className={classes.is__alt}>
+      <td className={classes.td + " " + classes.is__alt}>{status}</td>
+      <td className={classes.td + " " + classes.is__price}>{price} руб.</td>
+      <td className={classes.td + " " + classes.is__alt}>
         <button>Удалить</button>
       </td>
     </tr>

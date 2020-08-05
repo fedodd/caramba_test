@@ -22,8 +22,10 @@ function App() {
       setIsLoading(true);
       try {
         const result = await axios(dataUrl);
-        // fix here pednding to pending maybe
         const cars = result.data.map((car) => {
+          // fix bug with repeating name or what is it? test for a long title? if it's bug need more props for how to fix it. method with set not good.
+          const title = [...new Set(car.title.split(" "))].join(" ");
+          car.title = title;
           car.status === "pednding" ? (car.status = "pending") : null;
           return car;
         });
