@@ -7,7 +7,7 @@ const table = (props) => {
     <table className={classes.table}>
       <caption>Автомобили в наличии</caption>
       <thead>
-        <tr>
+        <tr className={classes.tableHeader}>
           <th>Название</th>
           <th className={classes.descrHeader}></th>
           <th>Год</th>

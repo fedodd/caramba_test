@@ -14,6 +14,11 @@
       display: table-header-group;
     }
 
+    .tableHeader {
+      background-color: var(--color-car_red);
+      height: 45px;
+    }
+
     & caption {
       display: table-caption;
       font-size: 20px;
@@ -27,7 +32,7 @@
 
 .descrHeader {
   /* display: none; */
-  visibility: hidden;
+  /* visibility: hidden; */
 }
 
 /* maybe move it to row.pcss */
@@ -51,6 +56,12 @@
     align-self: center;
   }
 
+  @media only screen and (min-width: 720px) {
+    .with_descr & {
+      margin-bottom: 30px;
+    }
+  }
+
   &.is__descr {
     /* position: relative; */
     margin: 0;
@@ -60,6 +71,14 @@
     color: var(--color-text_descr);
     order: 2;
     margin-bottom: var(--margin-table_bottom);
+
+    @media only screen and (min-width: 720px) {
+      & {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
   }
 
   &.is__title {

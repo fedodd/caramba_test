@@ -33,19 +33,18 @@ const tableRow = (props) => {
   }
 
   // thousand separator in price
-
   const price = isNaN(props.car.price)
     ? props.car.price
     : props.car.price.toLocaleString("ru-RU");
-  // .toString()
-  // .split("")
-  // .reverse()
-  // .match(/.{1,2}/g)
-  // .reverse()
-  // .join(" ");
 
   return (
-    <tr className={classes.row}>
+    <tr
+      className={
+        props.car.description === ""
+          ? classes.row
+          : classes.row + " " + classes.with_descr
+      }
+    >
       <td className={classes.td + " " + classes.is__title}>
         {props.car.title}
       </td>
