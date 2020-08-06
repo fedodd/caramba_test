@@ -4,12 +4,16 @@
   font-weight: 300;
   background-color: var(--color-bg_table);
   border-spacing: 0;
+  width: 100%;
   & thead,
   & caption {
     display: none;
   }
 
   @media only screen and (min-width: 720px) {
+    & {
+      margin: 0 var(--margin-holder);
+    }
     & thead {
       display: table-header-group;
     }
@@ -17,6 +21,7 @@
     .tableHeader {
       background-color: var(--color-car_red);
       height: 45px;
+      color: white;
     }
 
     & caption {
@@ -30,10 +35,9 @@
   }
 }
 
-.descrHeader {
-  /* display: none; */
-  /* visibility: hidden; */
-}
+/* .descrHeader {
+  visibility: hidden;
+} */
 
 /* maybe move it to row.pcss */
 .row {
@@ -44,6 +48,7 @@
   @media only screen and (min-width: 720px) {
     & {
       display: table-row;
+      padding: 20px var(--padding-inputText);
     }
   }
 }
@@ -74,9 +79,7 @@
 
     @media only screen and (min-width: 720px) {
       & {
-        position: absolute;
-        bottom: 0;
-        left: 0;
+        display: none;
       }
     }
   }
@@ -109,4 +112,19 @@
   height: var(--circle-radius);
   border: var(--circle-border);
   border-radius: 50%;
+}
+
+.descrNode {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-size: var(--fontSize-table_descr);
+  color: var(--color-text_descr);
+  order: 2;
+  margin-bottom: var(--margin-table_bottom);
+  display: none;
+
+  @media only screen and (min-width: 720px) {
+    display: block;
+  }
 }

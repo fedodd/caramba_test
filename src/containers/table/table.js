@@ -9,7 +9,7 @@ const table = (props) => {
       <thead>
         <tr className={classes.tableHeader}>
           <th>Название</th>
-          <th className={classes.descrHeader}></th>
+          {/* <th className={classes.descrHeader}></th> */}
           <th>Год</th>
           <th>Цвет</th>
           <th>Статус</th>

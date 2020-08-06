@@ -37,21 +37,24 @@ const tableRow = (props) => {
     ? props.car.price
     : props.car.price.toLocaleString("ru-RU");
 
+  // with description
+  let trClasses = classes.row;
+  let addedStyle = null;
+  let descrNode = null;
+
+  if (props.car.description !== "") {
+    trClasses = trClasses + " " + classes.with_descr;
+    addedStyle = { marginBottom: 0 };
+    descrNode = <p className={classes.descrNode}>{props.car.description}</p>;
+  }
+
   return (
-    <tr
-      className={
-        props.car.description === ""
-          ? classes.row
-          : classes.row + " " + classes.with_descr
-      }
-    >
+    <tr className={trClasses}>
       <td className={classes.td + " " + classes.is__title}>
-        {props.car.title}
+        <span>{props.car.title}</span>
+        {descrNode}
       </td>
-      <td
-        className={classes.td + " " + classes.is__descr}
-        style={props.car.description === "" ? { marginBottom: 0 } : null}
-      >
+      <td className={classes.td + " " + classes.is__descr} style={addedStyle}>
         {props.car.description}
       </td>
       <td className={[classes.td, classes.is__year, classes.is__alt].join(" ")}>
