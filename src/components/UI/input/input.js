@@ -1,7 +1,8 @@
-import React from 'react';
-import { Field, ErrorMessage } from 'formik';
-import Select from '../select/select';
-import classes from './input.pcss';
+import React from "react";
+import { useFormik, Field, ErrorMessage } from "formik";
+// import ErrorMessage from "./../errorMessage/errorMessage";
+import Select from "../select/select";
+import classes from "./input.pcss";
 
 const input = (props) => {
   // const fileadComponent = props.type === "select" ? <Select /> : null;
@@ -9,7 +10,7 @@ const input = (props) => {
   let addedProps = null;
   let styleClasses = [classes.label];
 
-  if (props.type === 'select') {
+  if (props.type === "select") {
     addedProps = {
       component: Select,
       changeHandler: props.changeHandler,
@@ -23,14 +24,16 @@ const input = (props) => {
 
   const validate = (value) => {
     let error;
-    if (value === '') {
-      error = 'Заполните поле!';
+    if (value === "") {
+      error = "Заполните поле!";
     }
     return error;
   };
 
+  // console.log("name", props.name);
+
   return (
-    <label className={styleClasses.join(' ')}>
+    <label className={styleClasses.join(" ")}>
       <Field
         // validate={validate}
         className={classes.input}
@@ -38,11 +41,16 @@ const input = (props) => {
         placeholder={props.placeholder}
         name={props.name}
         required={props.isRequired}
-        {...addedProps}></Field>
+        {...addedProps}
+      ></Field>
 
       {props.inputTitle ? (
         <span className={classes.inputTitle}>{props.inputTitle}</span>
       ) : null}
+      <ErrorMessage
+        name={props.name}
+        render={(msg) => <span className={classes.error}>{msg}</span>}
+      />
     </label>
   );
 };

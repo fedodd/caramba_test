@@ -1,40 +1,39 @@
-import React, { useState } from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import React, { useState } from "react";
+import { Formik, Field, Form, ErrorMessage, connect, getIn } from "formik";
+import * as Yup from "yup";
 
-import { useDispatch } from 'react-redux';
-import Select from '../../components/UI/select/select';
-import Button from '../../components/UI/button/button';
-import Input from '../../components/UI/input/input';
-import Radio from '../../components/UI/radio/radio';
+import { useDispatch } from "react-redux";
+import Select from "../../components/UI/select/select";
+import Button from "../../components/UI/button/button";
+import Input from "../../components/UI/input/input";
+import Radio from "../../components/UI/radio/radio";
 
-import { addCar } from './../../redux/actions';
+import { addCar } from "./../../redux/actions";
 
-import classes from './form.pcss';
+import classes from "./form.pcss";
 
 const form = () => {
   const dispatch = useDispatch();
-  const [selectValue, setSelectValue] = useState('');
+  const [selectValue, setSelectValue] = useState("");
 
   const onSubmitHandler = (values) => {
-    // console.log('on submit', values);
     const car = values;
     car.id = Date.now();
     dispatch(addCar(car));
   };
 
   const validate = (values) => {
-    console.log('in validate', values);
-    let error;
+    let errors = {};
 
     for (const [key, value] of Object.entries(values)) {
-      if (value === '') {
-        console.log(key, value);
-        error = 'Заполните поле!';
+      if (key !== "description") {
+        if (value === "") {
+          errors[key] = "Заполните поле!";
+        }
       }
     }
 
-    return error;
+    return errors;
   };
 
   // const carSchema = Yup.object().shape({
@@ -55,18 +54,16 @@ const form = () => {
   return (
     <Formik
       initialValues={{
-        title: '',
-        price: '',
-        year: '',
-        description: '',
-        color: '',
-        status: '',
+        title: "",
+        price: "",
+        year: "",
+        description: "",
+        color: "",
+        status: "",
       }}
       validate={validate}
       // validationSchema={carSchema}
       onSubmit={(values, { resetForm }) => {
-        console.log('values on submit', values);
-
         onSubmitHandler(values);
         resetForm();
       }}
@@ -81,10 +78,7 @@ const form = () => {
               errors={errors}
               // isRequired={true}
             />
-            <ErrorMessage
-              name="title"
-              render={(msg) => <span className={classes.error}>{msg}</span>}
-            />
+
             <Input
               labelClass="is__short"
               type="text"
@@ -110,15 +104,16 @@ const form = () => {
             placeholder="Описание"
             name="description"
             inputTitle="Описание"
-            // errors={errors}
+            errors={errors}
           />
-          <fieldset className={classes.fieldset + ' ' + classes.with__margin}>
+          <fieldset className={classes.fieldset + " " + classes.with__margin}>
             <div className={classes.radioGroup}>
               <legend className={classes.legend}>Цвет</legend>
               <div role="group" aria-labelledby="my-radio-group">
                 <Radio
                   name="color"
                   value="white"
+                  isActive={values.color === "white"}
                   // errors={errors}
                   // isRequired={true}
                 />
@@ -156,7 +151,7 @@ const form = () => {
             <Input
               labelClass="is__short"
               type="select"
-              changeHandler={(value) => setFieldValue('status', value, false)}
+              changeHandler={(value) => setFieldValue("status", value, false)}
               name="status"
               // errors={errors}
               // isRequired={true}

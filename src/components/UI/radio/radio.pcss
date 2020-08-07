@@ -14,31 +14,30 @@
   border: 1px solid transparent;
   border-radius: 50%;
   transition: 0.3s;
-
-  &::after {
-    position: absolute;
-    top: -6px; /*5px our border on active+hover and 1px that transparent*/
-    left: -6px;
-    z-index: -1;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: white;
-    content: '';
+  &:hover {
+    cursor: pointer;
   }
 
   &:last-child {
     margin-right: 0;
   }
+}
 
-  &:hover,
-  &:active,
-  .radio:checked ~ & {
-    cursor: pointer;
+.circle {
+  position: absolute;
+  top: -6px; /*5px our border on active+hover and 1px that transparent*/
+  left: -6px;
+  z-index: -1;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  content: "";
+
+  .radioLabel:hover &,
+  .radioLabel:active &,
+  .radioLabel .radio:checked ~ & {
     border-color: transparent;
-
-    &::after {
-      background-color: var(--color-car_border);
-    }
+    background-color: var(--color-car_border);
   }
 }
