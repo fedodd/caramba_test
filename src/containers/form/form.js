@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Formik, Field, Form, ErrorMessage, connect, getIn } from "formik";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { useDispatch } from "react-redux";
@@ -14,7 +14,6 @@ import classes from "./form.pcss";
 
 const form = () => {
   const dispatch = useDispatch();
-  const [selectValue, setSelectValue] = useState("");
 
   const onSubmitHandler = (values) => {
     const car = values;
@@ -22,34 +21,16 @@ const form = () => {
     dispatch(addCar(car));
   };
 
-  const validate = (values) => {
-    let errors = {};
-
-    for (const [key, value] of Object.entries(values)) {
-      if (key !== "description") {
-        if (value === "") {
-          errors[key] = "Заполните поле!";
-        }
-      }
-    }
-
-    return errors;
-  };
-
-  // const carSchema = Yup.object().shape({
-  //   title: Yup.string().required('Заполните поле'),
-  //   price: Yup.number().required('Заполните поле'),
-  //   year: Yup.string()
-  //     .min(1900)
-  //     .max(new Date().getFullYear())
-  //     .required('Заполните поле'),
-  //   color: Yup.string().required('Выберите цвет'),
-  //   status: Yup.string().required('Выберите статус'),
-  // });
-
-  // if (!values.title) {
-  //   errors.title = 'Required';
-  // }
+  const carSchema = Yup.object().shape({
+    title: Yup.string().required("Заполните поле"),
+    price: Yup.number().required("Заполните поле"),
+    year: Yup.number()
+      .min(1900)
+      .max(new Date().getFullYear())
+      .required("Заполните поле"),
+    color: Yup.string().required("Выберите цвет"),
+    status: Yup.string().required("Выберите статус"),
+  });
 
   return (
     <Formik
@@ -61,8 +42,7 @@ const form = () => {
         color: "",
         status: "",
       }}
-      validate={validate}
-      // validationSchema={carSchema}
+      validationSchema={carSchema}
       onSubmit={(values, { resetForm }) => {
         onSubmitHandler(values);
         resetForm();
@@ -75,8 +55,6 @@ const form = () => {
               placeholder="Название"
               name="title"
               inputTitle="Название"
-              errors={errors}
-              // isRequired={true}
             />
 
             <Input
@@ -85,8 +63,6 @@ const form = () => {
               placeholder="Цена"
               name="price"
               inputTitle="Цена"
-              errors={errors}
-              // isRequired={true}
             />
             <Input
               labelClass="is__short"
@@ -94,8 +70,6 @@ const form = () => {
               placeholder="Год"
               name="year"
               inputTitle="Год"
-              // errors={errors}
-              // isRequired={true}
             />
           </fieldset>
           <Input
@@ -104,7 +78,6 @@ const form = () => {
             placeholder="Описание"
             name="description"
             inputTitle="Описание"
-            errors={errors}
           />
           <fieldset className={classes.fieldset + " " + classes.with__margin}>
             <div className={classes.radioGroup}>
@@ -114,33 +87,11 @@ const form = () => {
                   name="color"
                   value="white"
                   isActive={values.color === "white"}
-                  // errors={errors}
-                  // isRequired={true}
                 />
-                <Radio
-                  name="color"
-                  value="black"
-                  // errors={errors}
-                  // isRequired={true}
-                />
-                <Radio
-                  name="color"
-                  value="grey"
-                  // errors={errors}
-                  // isRequired={true}
-                />
-                <Radio
-                  name="color"
-                  value="red"
-                  // errors={errors}
-                  // isRequired={true}
-                />
-                <Radio
-                  name="color"
-                  value="green"
-                  // errors={errors}
-                  // isRequired={true}
-                />
+                <Radio name="color" value="black" />
+                <Radio name="color" value="grey" />
+                <Radio name="color" value="red" />
+                <Radio name="color" value="green" />
               </div>
               <ErrorMessage
                 name="color"
@@ -153,8 +104,6 @@ const form = () => {
               type="select"
               changeHandler={(value) => setFieldValue("status", value, false)}
               name="status"
-              // errors={errors}
-              // isRequired={true}
             />
             <Button
               type="submit"

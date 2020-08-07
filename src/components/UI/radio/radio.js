@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Field, ErrorMessage } from "formik";
+import React from "react";
+import { Field } from "formik";
 import classes from "./radio.pcss";
 
 const input = (props) => {
@@ -27,33 +27,12 @@ const input = (props) => {
       break;
   }
 
-  // const validate = (value) => {
-  //   let error;
-  //   if (value === '') {
-  //     error = 'Заполните поле!';
-  //   }
-  //   return error;
-  // };
-  const [isActive, setActive] = useState(false);
-
   return (
-    <label
-      className={
-        isActive
-          ? classes.radioLabel + " " + classes.is__checked
-          : classes.radioLabel
-      }
-      style={specialStyle}
-    >
+    <label className={classes.radioLabel} style={specialStyle}>
       <Field
         type="radio"
-        // validate={validate}
         value={props.value}
         name={props.name}
-        onClick={(e) => {
-          console.log(e.target);
-        }}
-        // required={props.isRequired}
         className={classes.radio}
       ></Field>
       <span className={classes.circle}></span>

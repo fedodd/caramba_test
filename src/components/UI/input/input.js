@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormik, Field, ErrorMessage } from "formik";
+import { Field, ErrorMessage } from "formik";
 // import ErrorMessage from "./../errorMessage/errorMessage";
 import Select from "../select/select";
 import classes from "./input.pcss";
@@ -22,20 +22,9 @@ const input = (props) => {
     styleClasses.push(classes[props.labelClass]);
   }
 
-  const validate = (value) => {
-    let error;
-    if (value === "") {
-      error = "Заполните поле!";
-    }
-    return error;
-  };
-
-  // console.log("name", props.name);
-
   return (
     <label className={styleClasses.join(" ")}>
       <Field
-        // validate={validate}
         className={classes.input}
         type={props.type}
         placeholder={props.placeholder}
