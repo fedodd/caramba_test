@@ -23,6 +23,7 @@
 
 .radioGroup {
   margin-bottom: var(--margin-form_y);
+  position: relative;
 
   @media only screen and (min-width: 720px) {
     & {
@@ -31,4 +32,12 @@
       margin-right: var(--margin-form_x);
     }
   }
+}
+
+.error {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: red;
+  transform: translateY(100%);
 }

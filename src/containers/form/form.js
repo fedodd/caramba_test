@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Formik, Field, Form } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+
 import { useDispatch } from 'react-redux';
 import Select from '../../components/UI/select/select';
 import Button from '../../components/UI/button/button';
@@ -15,11 +17,40 @@ const form = () => {
   const [selectValue, setSelectValue] = useState('');
 
   const onSubmitHandler = (values) => {
+    // console.log('on submit', values);
     const car = values;
-    car.id = Date.now() + Math.random().toFixed();
-
+    car.id = Date.now();
     dispatch(addCar(car));
   };
+
+  const validate = (values) => {
+    console.log('in validate', values);
+    let error;
+
+    for (const [key, value] of Object.entries(values)) {
+      if (value === '') {
+        console.log(key, value);
+        error = 'Заполните поле!';
+      }
+    }
+
+    return error;
+  };
+
+  // const carSchema = Yup.object().shape({
+  //   title: Yup.string().required('Заполните поле'),
+  //   price: Yup.number().required('Заполните поле'),
+  //   year: Yup.string()
+  //     .min(1900)
+  //     .max(new Date().getFullYear())
+  //     .required('Заполните поле'),
+  //   color: Yup.string().required('Выберите цвет'),
+  //   status: Yup.string().required('Выберите статус'),
+  // });
+
+  // if (!values.title) {
+  //   errors.title = 'Required';
+  // }
 
   return (
     <Formik
@@ -31,7 +62,14 @@ const form = () => {
         color: '',
         status: '',
       }}
-      onSubmit={onSubmitHandler}
+      validate={validate}
+      // validationSchema={carSchema}
+      onSubmit={(values, { resetForm }) => {
+        console.log('values on submit', values);
+
+        onSubmitHandler(values);
+        resetForm();
+      }}
       render={({ setFieldValue, values, errors }) => (
         <Form className={classes.form}>
           <fieldset className={classes.fieldset}>
@@ -40,6 +78,12 @@ const form = () => {
               placeholder="Название"
               name="title"
               inputTitle="Название"
+              errors={errors}
+              // isRequired={true}
+            />
+            <ErrorMessage
+              name="title"
+              render={(msg) => <span className={classes.error}>{msg}</span>}
             />
             <Input
               labelClass="is__short"
@@ -47,6 +91,8 @@ const form = () => {
               placeholder="Цена"
               name="price"
               inputTitle="Цена"
+              errors={errors}
+              // isRequired={true}
             />
             <Input
               labelClass="is__short"
@@ -54,6 +100,8 @@ const form = () => {
               placeholder="Год"
               name="year"
               inputTitle="Год"
+              // errors={errors}
+              // isRequired={true}
             />
           </fieldset>
           <Input
@@ -62,17 +110,47 @@ const form = () => {
             placeholder="Описание"
             name="description"
             inputTitle="Описание"
+            // errors={errors}
           />
           <fieldset className={classes.fieldset + ' ' + classes.with__margin}>
             <div className={classes.radioGroup}>
               <legend className={classes.legend}>Цвет</legend>
-              <div>
-                <Radio name="color" value="white" />
-                <Radio name="color" value="black" />
-                <Radio name="color" value="grey" />
-                <Radio name="color" value="red" />
-                <Radio name="color" value="green" />
+              <div role="group" aria-labelledby="my-radio-group">
+                <Radio
+                  name="color"
+                  value="white"
+                  // errors={errors}
+                  // isRequired={true}
+                />
+                <Radio
+                  name="color"
+                  value="black"
+                  // errors={errors}
+                  // isRequired={true}
+                />
+                <Radio
+                  name="color"
+                  value="grey"
+                  // errors={errors}
+                  // isRequired={true}
+                />
+                <Radio
+                  name="color"
+                  value="red"
+                  // errors={errors}
+                  // isRequired={true}
+                />
+                <Radio
+                  name="color"
+                  value="green"
+                  // errors={errors}
+                  // isRequired={true}
+                />
               </div>
+              <ErrorMessage
+                name="color"
+                render={(msg) => <span className={classes.error}>{msg}</span>}
+              />
             </div>
 
             <Input
@@ -80,6 +158,8 @@ const form = () => {
               type="select"
               changeHandler={(value) => setFieldValue('status', value, false)}
               name="status"
+              // errors={errors}
+              // isRequired={true}
             />
             <Button
               type="submit"
