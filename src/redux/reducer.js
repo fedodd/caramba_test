@@ -3,55 +3,48 @@ import {
   SET_ERROR_ON_LOAD,
   ADD_CAR,
   DELETE_CAR,
-} from "./actionTypes";
+} from './actionTypes';
 
 const initialState = {
   cars: [],
-  err: null,
+  err: false,
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_CARS: {
       // fix serverside - bug: pending, not pednding
-      console.log("in fetch car", action.payload);
-      const fetchedCars = action.payload;
+      const fetchedCars = action.payload.cars;
       const cars = fetchedCars.map((car) => {
-        car.status === "pednding" ? (car.status = "pending") : null;
+        car.status === 'pednding' ? (car.status = 'pending') : null;
         return car;
       });
-      console.log("in fetch car", cars);
 
       return {
         ...state,
-        cars: fetchedCars,
-        // ...cars,
+        cars,
       };
     }
     case SET_ERROR_ON_LOAD: {
-      const err = action.payload;
+      const err = action.payload.err;
       return {
         ...state,
-        ...err,
+        err,
       };
     }
 
     case ADD_CAR: {
-      const { newCar } = action.payload;
-      // const cars = [...cars, newCar]
-      console.log("add car", car, cars);
-
+      const newCar = action.payload.car;
+      const cars = [...state.cars, newCar];
       return {
         ...state,
-        cars: [...cars, newCar],
+        cars,
       };
     }
 
     case DELETE_CAR: {
       const { id } = action.payload;
-      console.log("in delete car", id, cars);
-
-      const filterdCars = cars.filter((car) => car.id === id);
+      const filterdCars = state.cars.filter((car) => car.id !== id);
       return {
         ...state,
         cars: filterdCars,

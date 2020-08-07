@@ -3,7 +3,7 @@ import {
   SET_ERROR_ON_LOAD,
   ADD_CAR,
   DELETE_CAR,
-} from "./actionTypes";
+} from './actionTypes';
 
 export const fetchCars = (cars) => ({
   type: FETCH_CARS,
@@ -20,7 +20,7 @@ export const addCar = (car) => ({
   payload: { car },
 });
 
-export const deleteTodo = (id) => ({
-  type: DELETE_TODO,
+export const deleteCar = (id) => ({
+  type: DELETE_CAR,
   payload: { id },
 });
