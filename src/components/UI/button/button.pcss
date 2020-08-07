@@ -1,0 +1,67 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.is__delete {
+    width: 70px;
+    height: 30px;
+    border: none;
+    text-transform: capitalize;
+    font-size: inherit;
+    font-weight: inherit;
+    border-radius: 15px;
+
+    color: var(--color-text_del);
+    background-color: transparent;
+    &:hover {
+      color: white;
+      background-color: var(--color-bg_dark);
+    }
+  }
+
+  &.is__submit {
+    min-width: 140px;
+    max-width: 160px;
+    height: 40px;
+    border: 2px solid var(--color-button);
+    border-radius: 3px;
+    font-size: var(--fontSize-button);
+    font-weight: bold;
+    color: white;
+    background-color: var(--color-button);
+
+    @media only screen and (min-width: 720px) {
+      width: var(--input-size_full);
+      max-width: unset;
+    }
+
+    &:hover {
+      border-color: var(--color-bg_dark);
+      /* no style for button hover */
+      background-color: var(--color-bg_dark);
+    }
+  }
+}
+
+.icon {
+  display: inline-block;
+  margin-bottom: 1px;
+  width: 8px;
+  height: 8px;
+  border-right: 3px solid white;
+  border-bottom: 3px solid white;
+  margin-left: 5px;
+  transform: rotate(-45deg);
+}

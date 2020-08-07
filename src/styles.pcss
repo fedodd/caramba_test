@@ -1,10 +1,71 @@
+@import "./styles/normalize.css";
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
   color: #24292e;
   background-color: #fff;
+}
+
+/* vars */
+
+/* colors */
+:root {
+  --color-bg_dark: #282d30;
+  --color-bg_table: #f5f6f6;
+
+  --color-text_black: #111111;
+  --color-text_light: #999999;
+  --color-text_descr: #8b9497;
+  --color-text_del: #8b9497;
+
+  --color-button: #c4092f;
+
+  /* car colors */
+  --color-car_red: #d74345;
+  --color-car_green: #88c504;
+  --color-car_grey: #cbcbcc;
+  --color-car_black: #000000;
+  --color-car_white: #ffffff;
+  --color-car_border: #c4092f;
+
+  /* borders */
+  --border-input: 1px solid #dcdcdc;
+  --border-circle: 1px solid transparent;
+  --border-table: 1px solid #dadada;
+
+  /* fonts */
+
+  --fontSize-title: ;
+  --fontSize-input: 12px;
+  --lineHeight-input: 18px;
+  --fontSize-text: ;
+  --fontSize-button: 16px;
+  --lineHeight-button: 36px;
+  --fontSize-table: 14px;
+  --lineHeight-table: 16px;
+  --fontSize-table_descr: 13px;
+  --fontSize-smaller: 11px;
+
+  /* padding */
+
+  --padding-inputText: 10px;
+  --margin-table_right: 20px;
+  --margin-table_bottom: 14px;
+  --margin-form_y: 17px;
+  --margin-form_x: 20px;
+  --margin-holder: 10px;
+
+  /* sizes */
+  --circle-radius: 20px;
+  --input-size_full: calc((100% - 2 * var(--margin-form_x)) / 3);
+
+  /* images */
+
+  --logoUrl: url("images/DUCK.png");
+  --logoUrl-big: url("images/DUCK_big.png");
 }

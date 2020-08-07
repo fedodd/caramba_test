@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
+import classes from "./footer.pcss";
 
 const footer = () => {
   return (
-    <div className="footer">
-      <span>2015 Captian QUACK</span>
+    <div className={classes.footer}>
+      <span>© 2015 Captian QUACK</span>
       <span>десница тысячелетия и моллюск</span>
     </div>
   );

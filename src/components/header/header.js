@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
+import classes from "./header.pcss";
 
 const header = () => {
   return (
-    <div className="header">
-      <img src="" alt="LOGO"></img>
-      <p>captain QUACK</p>
+    <div className={classes.header}>
+      <div className={classes.logo}></div>
     </div>
   );
 };

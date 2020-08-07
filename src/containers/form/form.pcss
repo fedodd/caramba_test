@@ -1,0 +1,34 @@
+.form {
+  margin-bottom: 50px;
+}
+
+.fieldset {
+  padding: 0;
+  border: 0;
+  margin: 0;
+
+  &.with__margin {
+    margin-top: var(--margin-form_y);
+  }
+}
+
+.legend {
+  margin-bottom: 5px;
+  /* margin-left: var(--padding-inputText); think they must be on same line */
+  width: 100%;
+  font-size: var(--fontSize-input);
+  line-height: var(--lineHeight-input);
+  color: var(--color-text_light);
+}
+
+.radioGroup {
+  margin-bottom: var(--margin-form_y);
+
+  @media only screen and (min-width: 720px) {
+    & {
+      width: var(--input-size_full);
+      display: inline-block;
+      margin-right: var(--margin-form_x);
+    }
+  }
+}

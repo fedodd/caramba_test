@@ -1,59 +1,81 @@
-const webpack = require('webpack');
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require("webpack");
+const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = {
-  entry: ['react-hot-loader/patch', './src/index.js'],
+  entry: ["react-hot-loader/patch", "./src/index.js"],
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
+        use: "babel-loader",
         exclude: /node_modules/,
       },
       {
-        test: /\.pcss$/,
+        test: /\.png$/,
         use: [
-          'style-loader',
           {
-            loader: 'css-loader',
+            loader: "file-loader",
             options: {
-              importLoaders: 1,
-              modules: true,
+              name: "[path][name].[ext]",
+              // context: path.resolve(__dirname, "src/images"),
+              // outputPath: "dist/",
+              // publicPath: "./",
+              // useRelativePaths: true,
             },
           },
-          'postcss-loader',
+        ],
+      },
+      {
+        test: /\.(css|pcss)$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: "[name]__[local]--[hash:base64:5]",
+              },
+            },
+          },
+          "postcss-loader",
         ],
       },
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: [".js", ".jsx"],
     alias: {
-      'react-dom': '@hot-loader/react-dom',
+      "react-dom": "@hot-loader/react-dom",
     },
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: "./dist",
     port: 8000,
   },
   plugins: [
+    new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      template: require('html-webpack-template'),
-      title: 'Ya caramba!',
+      template: require("html-webpack-template"),
+      title: "Ya caramba!",
       inject: false,
-      appMountId: 'app',
-      filename: 'index.html',
+      appMountId: "app",
+      filename: "index.html",
       links: [
-        'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap',
+        "https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap",
       ],
-      meta: {
-        viewport: 'width=device-width, initial-scale=1, shrink-to-fit=no',
-      },
+      meta: [
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1, shrink-to-fit=no",
+        },
+      ],
     }),
   ],
 };

@@ -1,0 +1,19 @@
+.header {
+  height: 80px;
+  background-color: var(--color-bg_dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  height: 63px;
+  width: 297px;
+  background-image: var(--logoUrl);
+
+  @media only screen and (min-width: 720px) {
+    height: 104px;
+    width: 494px;
+    background-image: var(--logoUrl-big);
+  }
+}
