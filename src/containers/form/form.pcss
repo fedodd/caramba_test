@@ -3,9 +3,9 @@
 }
 
 .fieldset {
+  margin: 0;
   padding: 0;
   border: 0;
-  margin: 0;
 
   &.with__margin {
     margin-top: var(--margin-form_y);
@@ -22,14 +22,14 @@
 }
 
 .radioGroup {
-  margin-bottom: var(--margin-form_y);
   position: relative;
+  margin-bottom: var(--margin-form_y);
 
   @media only screen and (min-width: 720px) {
     & {
-      width: var(--input-size_full);
       display: inline-block;
       margin-right: var(--margin-form_x);
+      width: var(--input-size_full);
     }
   }
 }
@@ -38,6 +38,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  font-size: var(--fontSize-input);
   color: red;
   transform: translateY(100%);
 }

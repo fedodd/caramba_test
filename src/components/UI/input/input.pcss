@@ -10,6 +10,18 @@
   line-height: var(--lineHeight-input);
   color: var(--color-text_light);
 
+  @media only screen and (min-width: 720px) {
+    &,
+    &.is__short {
+      margin-right: var(--margin-form_x);
+      width: var(--input-size_full);
+
+      .fildset::last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
   &.is__short {
     margin-right: var(--margin-form_x);
     width: calc(
@@ -26,18 +38,6 @@
 
   &.is__select {
     height: 40px;
-  }
-
-  @media only screen and (min-width: 720px) {
-    &,
-    &.is__short {
-      width: var(--input-size_full);
-      margin-right: var(--margin-form_x);
-
-      .fildset::last-child {
-        margin-right: 0;
-      }
-    }
   }
 }
 
@@ -94,7 +94,7 @@
 
 .error {
   position: absolute;
-  color: red;
   bottom: 0;
+  color: red;
   transform: translateY(100%);
 }
