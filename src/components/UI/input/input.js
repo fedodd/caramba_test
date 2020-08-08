@@ -29,7 +29,6 @@ const input = (props) => {
         type={props.type}
         placeholder={props.placeholder}
         name={props.name}
-        required={props.isRequired}
         {...addedProps}
       ></Field>
 

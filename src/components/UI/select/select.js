@@ -2,6 +2,7 @@ import React from "react";
 import SelectSearch from "react-select-search";
 
 import classes from "./select.pcss";
+import inputClasses from "./../input/input.pcss";
 
 const select = ({
   field, // { name, value, onChange, onBlur }
@@ -17,17 +18,18 @@ const select = ({
     { value: "out_of_stock", name: "Нет в наличии" },
   ];
 
+  let selectClasses = classes;
+  selectClasses.input = inputClasses.input;
+
   return (
-    <div className={props.className}>
-      <SelectSearch
-        options={options}
-        value={field.value}
-        name={field.name}
-        onChange={(value) => props.changeHandler(value)}
-        placeholder="Статус"
-        className={(key) => classes[key]}
-      />
-    </div>
+    <SelectSearch
+      options={options}
+      value={field.value}
+      name={field.name}
+      onChange={(value) => props.changeHandler(value)}
+      placeholder="Статус"
+      className={(key) => selectClasses[key]}
+    />
   );
 };
 
