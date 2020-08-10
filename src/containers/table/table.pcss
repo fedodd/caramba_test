@@ -1,14 +1,10 @@
 .table {
-  font-size: var(--fontSize-table);
-  line-height: var(--lineHeight-table);
-  font-weight: 300;
-  background-color: var(--color-bg_table);
-  border-spacing: 0;
   width: 100%;
-  & thead,
-  & caption {
-    display: none;
-  }
+  border-spacing: 0;
+  font-size: var(--fontSize-table);
+  font-weight: 300;
+  line-height: var(--lineHeight-table);
+  background-color: var(--color-bg_table);
 
   @media only screen and (min-width: 720px) {
     & {
@@ -19,19 +15,23 @@
     }
 
     .tableHeader {
-      background-color: var(--color-car_red);
       height: 45px;
       color: white;
+      background-color: var(--color-car_red);
     }
 
     & caption {
       display: table-caption;
+      margin: 30px 0 30px var(--padding-inputText);
       font-size: 20px;
       font-weight: bold;
-      margin: 30px 0 30px var(--padding-inputText);
       text-align: left;
       text-transform: uppercase;
     }
+  }
+  & thead,
+  & caption {
+    display: none;
   }
 }
 
@@ -42,8 +42,8 @@
 /* maybe move it to row.pcss */
 .row {
   display: flex;
-  padding: 20px;
   flex-wrap: wrap;
+  padding: 20px;
   border-bottom: var(--border-table);
   @media only screen and (min-width: 720px) {
     & {
@@ -56,26 +56,26 @@
 .td {
   padding: 0;
   order: 1;
-  &.is__alt {
-    order: 3;
-    align-self: center;
-  }
 
   @media only screen and (min-width: 720px) {
     .with_descr & {
       margin-bottom: 30px;
     }
   }
+  &.is__alt {
+    align-self: center;
+    order: 3;
+  }
 
   &.is__descr {
     /* position: relative; */
     margin: 0;
+    margin-bottom: var(--margin-table_bottom);
     padding: 0;
     width: 100%;
     font-size: var(--fontSize-table_descr);
     color: var(--color-text_descr);
     order: 2;
-    margin-bottom: var(--margin-table_bottom);
 
     @media only screen and (min-width: 720px) {
       & {
@@ -85,9 +85,9 @@
   }
 
   &.is__title {
-    width: calc((100% - 20px) / 2);
     margin-right: var(--margin-table_right);
     margin-bottom: calc(var(--margin-table_bottom) - 2px);
+    width: calc((100% - 20px) / 2);
   }
 
   &.is__price {
@@ -115,14 +115,14 @@
 }
 
 .descrNode {
+  display: none;
   margin: 0;
+  margin-bottom: var(--margin-table_bottom);
   padding: 0;
   width: 100%;
   font-size: var(--fontSize-table_descr);
   color: var(--color-text_descr);
   order: 2;
-  margin-bottom: var(--margin-table_bottom);
-  display: none;
 
   @media only screen and (min-width: 720px) {
     display: block;

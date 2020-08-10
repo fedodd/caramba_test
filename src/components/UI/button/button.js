@@ -5,6 +5,7 @@ const button = (props) => {
   return (
     <button
       type={props.type}
+      onClick={props.onClickHandler}
       className={classes.button + ' ' + classes[props.styleClass]}>
       {props.text}
       {props.withIcon && <span className={classes.icon}> </span>}

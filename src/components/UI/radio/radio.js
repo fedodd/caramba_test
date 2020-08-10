@@ -26,6 +26,7 @@ const input = (props) => {
     default:
       break;
   }
+
   return (
     <label className={classes.radioLabel} style={specialStyle}>
       <Field
@@ -34,6 +35,7 @@ const input = (props) => {
         name={props.name}
         className={classes.radio}
       ></Field>
+      <span className={classes.circle}></span>
     </label>
   );
 };

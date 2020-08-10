@@ -10,6 +10,18 @@
   line-height: var(--lineHeight-input);
   color: var(--color-text_light);
 
+  @media only screen and (min-width: 720px) {
+    &,
+    &.is__short {
+      margin-right: var(--margin-form_x);
+      width: var(--input-size_full);
+
+      .fildset::last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
   &.is__short {
     margin-right: var(--margin-form_x);
     width: calc(
@@ -27,22 +39,12 @@
   &.is__select {
     height: 40px;
   }
-
-  @media only screen and (min-width: 720px) {
-    &,
-    &.is__short {
-      width: var(--input-size_full);
-      margin-right: var(--margin-form_x);
-
-      .fildset::last-child {
-        margin-right: 0;
-      }
-    }
-  }
 }
 
 .input {
+  position: relative;
   margin-right: 0;
+  padding: 0;
   padding-left: var(--padding-inputText);
   width: 100%;
   height: 40px;
@@ -64,10 +66,11 @@
     cursor: pointer;
     border-bottom-color: #c4092f;
   }
-  .is__select & {
+  /* .is__select & {
     position: relative;
     padding-left: 0;
-  }
+    border: 0;
+  } */
 }
 
 .inputTitle {
@@ -90,4 +93,11 @@
     color: var(--color-text_light);
     order: unset;
   }
+}
+
+.error {
+  position: absolute;
+  bottom: 0;
+  color: red;
+  transform: translateY(100%);
 }

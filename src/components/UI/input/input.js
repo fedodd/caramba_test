@@ -1,6 +1,6 @@
 import React from "react";
-import { Field } from "formik";
-
+import { Field, ErrorMessage } from "formik";
+// import ErrorMessage from "./../errorMessage/errorMessage";
 import Select from "../select/select";
 import classes from "./input.pcss";
 
@@ -31,9 +31,14 @@ const input = (props) => {
         name={props.name}
         {...addedProps}
       ></Field>
+
       {props.inputTitle ? (
         <span className={classes.inputTitle}>{props.inputTitle}</span>
       ) : null}
+      <ErrorMessage
+        name={props.name}
+        render={(msg) => <span className={classes.error}>{msg}</span>}
+      />
     </label>
   );
 };

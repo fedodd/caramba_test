@@ -1,14 +1,14 @@
 .button {
   position: relative;
   display: inline-flex;
-  align-items: center;
-  text-transform: uppercase;
   justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
-  transition: 0.3s;
 
   outline: none;
+  text-transform: uppercase;
+  transition: 0.3s;
 
   &:hover {
     cursor: pointer;
@@ -18,10 +18,10 @@
     width: 70px;
     height: 30px;
     border: none;
-    text-transform: capitalize;
+    border-radius: 15px;
     font-size: inherit;
     font-weight: inherit;
-    border-radius: 15px;
+    text-transform: capitalize;
 
     color: var(--color-text_del);
     background-color: transparent;
@@ -58,10 +58,10 @@
 .icon {
   display: inline-block;
   margin-bottom: 1px;
+  margin-left: 5px;
   width: 8px;
   height: 8px;
   border-right: 3px solid white;
   border-bottom: 3px solid white;
-  margin-left: 5px;
   transform: rotate(-45deg);
 }
